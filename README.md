@@ -2,6 +2,23 @@
 
 npm create vite@latest compro-oro-negozio -- --template svelte
 
+per avviare l'ambiente di sviluppo eseguire da terminale
+
+npm run dev
+
+dopo essersi posizionati nella cartella negozio 
+
+per effettuare la build eseguire 
+
+npm run build 
+
+per utilizzare la build eseguire 
+
+npm run preview 
+
+nel file vite.config.js 
+si imposta la configurazione del server per l'ambiente di dev e preview
+
 # Svelte + Vite
 
 This template should help get you started developing with Svelte in Vite.

@@ -2,6 +2,8 @@
 
 npm create vite@latest compro-oro-negozio -- --template svelte
 
+npm install --save-dev @smui/button
+
 per avviare l'ambiente di sviluppo eseguire da terminale
 
 npm run dev

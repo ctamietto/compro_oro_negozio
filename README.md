@@ -4,6 +4,28 @@ npm create vite@latest compro-oro-negozio -- --template svelte
 
 npm install --save-dev @smui/button
 
+npm install @fontsource/roboto-mono
+
+# per preview visita : https://fontsource.org/fonts/roboto-mono
+
+npm install @fontsource/roboto
+
+# icone 
+npm install --save-dev @mdi/js
+
+# riferimento https://pictogrammers.com/library/mdi/
+# demo https://sveltematerialui.com/demo/icon-button/
+
+# The Default Theme
+npm install --save svelte-material-ui
+
+# componenti
+npm install --save-dev @smui/textfield
+npm install --save-dev @smui/button
+npm install --save-dev @smui/radio
+npm install --save-dev @smui/form-field
+npm install --save-dev @smui/select
+
 per avviare l'ambiente di sviluppo eseguire da terminale
 
 npm run dev

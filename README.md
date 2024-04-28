@@ -25,6 +25,8 @@ npm install --save-dev @smui/button
 npm install --save-dev @smui/radio
 npm install --save-dev @smui/form-field
 npm install --save-dev @smui/select
+npm install --save-dev @smui/common
+
 
 per avviare l'ambiente di sviluppo eseguire da terminale
 

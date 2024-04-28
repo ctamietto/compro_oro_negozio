@@ -18,6 +18,7 @@
   import "@fontsource/roboto-mono/700-italic.css";
 
 
+  import { mdiEmail } from '@mdi/js';
   //import Button, { Label } from '@smui/button';
   import Textfield from '@smui/textfield';
   import Icon from '@smui/textfield/icon';
@@ -25,7 +26,7 @@
   import Radio from '@smui/radio';
   import FormField from '@smui/form-field';
   import Select, { Option } from '@smui/select';
-
+  
   // dati anagrafici
   let nome = '';
   let cognome = '';
@@ -42,6 +43,28 @@
   let residenza_provincia = '';
   let residenza_cap = '';
 
+  // dati domicilio
+  let domicilio_tipo_indirizzo = '';
+  let domicilio_indirizzo = '';
+  let domicilio_localita = '';
+  let domicilio_provincia = '';
+  let domicilio_cap = '';
+
+  // contatti 
+  let email = '';
+  let telefono = '';
+  let cellulare = '';
+
+  // banca
+  let banca_iban = '';
+
+  // Annotazioni
+  let annotazioni_nota = '';
+
+  // Documento
+  let documento_ci_numero = '';
+  let documento_ci_rilasciata_da = '';
+  let documento_ci_scadenza = '';
 </script>
 
 <!--
@@ -131,7 +154,117 @@
     </div>    
   </div>
 </fieldset>
+<fieldset>
+  <legend>Domicilio</legend>
+  <div class="sezione_dati">
+    <div>
+      <Select bind:value={domicilio_tipo_indirizzo} label="Tipologia">
+        {#each ['Via', 'Strada' , 'Corso' , 'Piazza'] as item_rtp}
+          <Option value={item_rtp}>{item_rtp}</Option>
+        {/each}
+      </Select>  
+    </div>    
+    <div>
+      <Textfield variant="outlined" bind:value={domicilio_indirizzo} label="Indirizzo" input$class="indirizzo" >
+      </Textfield>
+    </div>    
+    <div>
+      <Textfield variant="outlined" bind:value={domicilio_localita} label="Località">
+      </Textfield>
+    </div>    
+    <div>
+      <Textfield variant="outlined" bind:value={domicilio_provincia} label="Provincia" input$class="provincia" >
+      </Textfield>
+    </div>    
+    <div>
+      <Textfield variant="outlined" bind:value={domicilio_cap} label="CAP" input$class="cap">
+      </Textfield>
+    </div>    
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Contatti</legend>
+  <div class="sezione_dati">
+    <div>
+      <Textfield variant="outlined" bind:value={email} type="email" label="Email" >
+        <!--
+        <svelte:fragment slot="leadingIcon">
+          <img src="email.svg" alt="Email SVG" class="icons"/>
+        </svelte:fragment>
+        -->
+      </Textfield>
+    </div>
+    <div>
+      <Textfield variant="outlined" bind:value={cellulare} label="Cellulare" >
+      </Textfield>
+    </div>
+    <div>
+      <Textfield variant="outlined" bind:value={telefono} label="Telefono" >
+      </Textfield>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Documento</legend>
+  <div class="sezione_dati">
+    <div class="sotto_sezione_dati">
+      <Textfield variant="outlined" bind:value={documento_ci_numero}  label="Carta di Identità" >
+      </Textfield>
+    </div>
+    <div class="sotto_sezione_dati">
+      <Textfield variant="outlined" bind:value={documento_ci_rilasciata_da}  label="Rilasciata da" >
+      </Textfield>
+    </div>
+    <div class="sotto_sezione_dati">
+      <Textfield variant="outlined" bind:value={documento_ci_scadenza} type="date" label="Scadenza" >
+      </Textfield>
+    </div>
+    <div class="sotto_sezione_dati">
+      <div style="text-align: center;font-style: italic;" >Fronte</div>
+      <img src="placeholder_gallery.png" alt="Fronte" class="placeholder">
+    </div>
+    <div class="sotto_sezione_dati">
+      <div style="text-align: center;font-style: italic;" >Retro</div>
+      <img src="placeholder_gallery.png" alt="Retro" class="placeholder">
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>Banca</legend>
+  <div class="sezione_dati">
+    <div>
+      <Textfield variant="outlined" bind:value={banca_iban} label="IBAN" >
+      </Textfield>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Annotazioni</legend>
+  <div class="sezione_dati">
+    <div>
+      <Textfield textarea bind:value={annotazioni_nota} label="Nota" input$class="nota">
+      </Textfield>
+    </div>
+  </div>
+</fieldset>
 <style>
+  .icons {
+    width: 25px;
+    height: 25px;
+    filter: invert(29%) sepia(82%) saturate(4393%) hue-rotate(6deg) brightness(107%) contrast(102%);
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+  .placeholder {
+    width:100px;
+    height: 100px;
+  }
+  .sotto_sezione_dati  {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .sezione_dati {
     display: flex;
     flex-direction: row;
@@ -157,6 +290,9 @@
     margin: 0px;
     padding: 0px;
     margin-bottom: 10px;
+  }
+  :global(.nota) {
+    width: 800px;
   }
   :global(.indirizzo) {
     width: 400px;
